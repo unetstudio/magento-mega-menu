@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <megamenu_tab>
+            <label>Megamenu</label>
+            <sort_order>10</sort_order>
+        </megamenu_tab>
+    </tabs>
+    <sections>
+        <megamenu_config>
+            <label>Megamenu Setting</label>
+            <tab>megamenu_tab</tab>
+            <front_type>text</front_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <!-- General Settings-->
+                <general translate="label">
+                    <label>General Settings</label>
+                    <front_type>text</front_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <is_enabled translate="label">
+                            <label>Enabled:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </is_enabled>
+                        <reset>
+                            <label>Reset Configuration :</label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>megamenu/system_config_source_reset</frontend_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Click to reset megamenu config to default</comment>
+                        </reset>
+                        <menu_effect>
+                            <label>Menu Effect:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>megamenu/system_config_source_effect</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This is how menu content will be shown</comment>
+                        </menu_effect>
+                    </fields>
+                </general>
+                <!-- Menu Configure -->
+                <menu translate="label">
+                    <label>Menu Settings</label>
+                    <front_type>text</front_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <!-- Menu -->
+                        <width>
+                            <label>Menu Width:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Menu Width (px) | Default Auto</comment>
+                        </width>
+                        <height>
+                            <label>Menu Height:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Menu Height (px) | Default Auto</comment>
+                        </height>
+                        <background>
+                            <label>Menu Background:</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default #FFFFFF</comment>
+                        </background>
+                    </fields>
+                </menu>
+                <!-- Item Menu Configure -->
+                <item translate="label">
+                    <label>Item Menu Settings</label>
+                    <front_type>text</front_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <!-- Item font style -->
+                        <item_align>
+                            <label>Item Alignment:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>megamenu/system_config_source_item_align</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default Center</comment>
+                        </item_align>
+                        <item_width>
+                            <label>Item Width:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Item Width (px) | Default Auto</comment>
+                        </item_width>
+                        <item_height>
+                            <label>Item Height:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Item Height (px) | Default 80px</comment>
+                        </item_height>
+                        <item_size>
+                            <label>Item Size:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Item Font Size (%) | Default 100%</comment>
+                        </item_size>
+                        <item_label>
+                            <label>Item Label:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>megamenu/system_config_source_item_label</source_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default Normal</comment>
+                        </item_label>
+                        <item_style>
+                            <label>Item Style:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>megamenu/system_config_source_item_style</source_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default Normal</comment>
+                        </item_style>
+                        <item_color>
+                            <label>Item Color:</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default #2E3233</comment>
+                        </item_color>
+                        <item_select_background>
+                            <label>Item Select Background:</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default #FFFFFF</comment>
+                        </item_select_background>
+                        <item_select_color>
+                            <label>Item Select Color:</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default #69AA6F</comment>
+                        </item_select_color>
+
+                    </fields>
+                </item>
+                <!-- Submenu Configure -->
+                <submenu translate="label">
+                    <label>Sub Menu Settings</label>
+                    <front_type>text</front_type>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <width>
+                            <label>Submenu Width:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default 92(%)</comment>
+                        </width>
+                        <background>
+                            <label>Submenu Background:</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default #FFFFFF</comment>
+                        </background>
+                        <link_color>
+                            <label>Submenu Link Color:</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default #2E3233</comment>
+                        </link_color>
+                        <link_hover_color>
+                            <label>Submenu Link Hover Color:</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default #69AA6F</comment>
+                        </link_hover_color>
+                    </fields>
+                </submenu>
+
+                <!-- Product Grid -->
+                <product_grid translate="label">
+                    <label>Product Grid Setting</label>
+                    <front_type>text</front_type>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <visible_name translate="label">
+                            <label>Display Name:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default Display Name</comment>
+                        </visible_name>
+                        <visible_price translate="label">
+                            <label>Display Price:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default Hidden Price</comment>
+                        </visible_price>
+                        <image_hover_color translate="label">
+                            <label>Image Hover Color:</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default #3399CC</comment>
+                        </image_hover_color>
+                    </fields>
+                </product_grid>
+            </groups>
+        </megamenu_config>
+    </sections>
+</config>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-right.phtml</template>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>css/mdg/megamenu/reset.css</stylesheet>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/mdg/megamenu/megamenu.css</stylesheet>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/mdg/megamenu/megamenus.css</stylesheet>
+            </action>
+            <action method="addJs">
+                <script>mdg/megamenu/modernizr.js</script>
+            </action>
+
+        </reference>
+        <reference name="catalog.topnav">
+            <action ifconfig="megamenu_config/general/is_enabled" method="setTemplate">
+                <template>mdg/megamenu/megamenu.phtml</template>
+            </action>
+        </reference>
+    </default>
+    <megamenu_index_select>
+        <block type="megamenu/megamenu" name="root" output="toHtml" template="mdg/megamenu/select.phtml" />
+    </megamenu_index_select>
+</layout>

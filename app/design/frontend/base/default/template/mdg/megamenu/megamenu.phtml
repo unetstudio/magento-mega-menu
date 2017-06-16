@@ -1,0 +1,19 @@
+<?php if(Mage::getStoreConfig('megamenu_config/general/is_enabled') == true): ?>
+
+    <?php echo $this->style(); ?>
+    <header class="cd-main-header">
+        <div class="cd-main">
+        </div>
+        <ul class="cd-header-buttons">
+            <li><a class="cd-nav-trigger" href="#cd-primary-nav"><span></span></a></li>
+        </ul> <!-- cd-header-buttons -->
+    </header>
+
+    <div class="cd-overlay"></div>
+    <nav class="cd-nav">
+        <ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
+            <?php echo $this->getMegamenu(); ?>
+        </ul> <!-- primary-nav -->
+    </nav> <!-- cd-nav -->
+
+<?php endif; ?>

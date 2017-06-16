@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mdg_Megamenu>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Mdg_Megamenu>
+    </modules>
+</config>

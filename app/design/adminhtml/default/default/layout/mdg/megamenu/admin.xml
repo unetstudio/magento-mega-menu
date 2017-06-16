@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="head">
+            <action method="setCanLoadExtJs">
+                <flag>1</flag>
+            </action>
+            <action method="setCanLoadTinyMce">
+                <flag>1</flag>
+            </action>
+            <action method="addJs">
+                <script>mage/adminhtml/variables.js</script>
+            </action>
+            <action method="addJs">
+                <script>mage/adminhtml/wysiwyg/widget.js</script>
+            </action>
+            <action method="addJs">
+                <script>lib/flex.js</script>
+            </action>
+            <action method="addJs">
+                <script>lib/FABridge.js</script>
+            </action>
+            <action method="addJs">
+                <script>mage/adminhtml/flexuploader.js</script>
+            </action>
+            <action method="addJs">
+                <script>mage/adminhtml/browser.js</script>
+            </action>
+            <action method="addJs">
+                <script>prototype/window.js</script>
+            </action>
+            <action method="addJs">
+                <script>prototype/prototype.js</script>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>prototype/windows/themes/default.css</name>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>prototype/windows/themes/magento.css</name>
+            </action>
+
+        </reference>
+    </default>
+    <adminhtml_megamenu_index>
+        <reference name="js">
+            <block type="core/template" template="mdg/megamenu/grid-inline.phtml"/>
+        </reference>
+        <reference name="content">
+            <block type="megamenu/adminhtml_megamenu" name="admin.megamenu"/>
+        </reference>
+    </adminhtml_megamenu_index>
+
+    <adminhtml_megamenu_grid>
+        <block type="megamenu/adminhtml_megamenu_grid" name="root"/>
+    </adminhtml_megamenu_grid>
+
+    <adminhtml_megamenu_new>
+        <update handle="adminhtml_megamenu_edit"/>
+    </adminhtml_megamenu_new>
+
+    <adminhtml_megamenu_edit>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>lib/prototype/windows/themes/magento.css</stylesheet>
+            </action>
+            <action method="addCss">
+                <stylesheet>mdg/megamenu/style.css</stylesheet>
+            </action>
+            <action method="addJs">
+                <script>mdg/megamenu/jquery-2.1.1.js</script>
+            </action>
+            <action method="addJs">
+                <script>mdg/megamenu/product_selector.js</script>
+            </action>
+            <action method="addJs">
+                <script>mdg/megamenu/product_chooser.js</script>
+            </action>
+            <action method="addJs">
+                <script>mdg/megamenu/category_tree.js</script>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="megamenu/adminhtml_megamenu_edit" name="megamenu_edit"/>
+        </reference>
+        <reference name="left">
+            <block type="megamenu/adminhtml_megamenu_edit_tabs" name="megamenu_edit_tabs">
+                <block type="megamenu/adminhtml_megamenu_edit_tab_main" name="megamenu_edit_tab_main"/>
+                <block type="megamenu/adminhtml_megamenu_edit_tab_content" name="megamenu_edit_tab_content"/>
+                <action method="addTab">
+                    <name>main_section</name>
+                    <block>megamenu_edit_tab_main</block>
+                </action>
+                <action method="addTab">
+                    <name>content_section</name>
+                    <block>megamenu_edit_tab_content</block>
+                </action>
+            </block>
+        </reference>
+    </adminhtml_megamenu_edit>
+
+    <!-- System Configure-->
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addJs">
+                <script>jscolor/jscolor.js</script>
+            </action>
+        </reference>
+    </adminhtml_system_config_edit>
+</layout>

@@ -1,0 +1,92 @@
+<style>
+    .gif{
+        background:url('<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'/mdg/megamenu/ajax_loader.gif'; ?>') no-repeat center center;
+
+        width:100px;
+        height:100px;
+        margin:10px;
+
+    }
+    .hide {
+        display: none;
+    }
+    .show {
+        display: block;
+    }
+</style>
+<h1>Ajax Select</h1>
+<label for="select">Select: </label>
+<select name="select" id="select">
+    <option value="">Select...</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+<br>
+<br>
+<p id="target"></p>
+<p id="p1" class="hide">Paragraph 1</p>
+<p id="p2" class="hide">Paragraph 2</p>
+<p id="p3" class="hide">Paragraph 3</p>
+
+<button type="button" onclick="callController()" title="submit" class="button">submit</button>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript">
+
+        $(function(){
+            var target_id = "target";
+            var select_id = "select";
+            var init_target_html = "<option>Select...</option>";
+            $('#'+target_id).html(init_target_html);
+            $('#'+select_id).change(function(e){
+                var selectvalue = $(this).val();
+                $('#'+target_id).addClass('gif');
+
+                if(selectvalue == ""){
+                    $('#'+target_id).html(init_target_html);
+                }
+                else {
+                    $.ajax({
+                        url: '<?php echo $this->getUrl('megamenu/index/ajax') ?>?value='+selectvalue,
+                        success: function(ouput){
+                            $('#'+target_id).html(ouput);
+                            $('#'+target_id).removeClass('gif');
+                            $('#p'+ouput).removeClass('hide');
+                            $('#p'+ouput).addClass('show');
+                        },
+                        error: function(error)
+                        {
+                            console.log("Error:");
+                            console.log(error);
+                            alert("ERROR");
+                        }
+
+                    });
+                }
+            });
+        });
+
+
+</script>
+
+<?php
+$rootcatId= Mage::app()->getStore()->getRootCategoryId();
+$categories = Mage::getModel('catalog/category')->getCategories($rootcatId);
+function  get_categories($categories) {
+    $array= '<ul>';
+    foreach($categories as $category) {
+        $cat = Mage::getModel('catalog/category')->load($category->getId());
+        $count = $cat->getProductCount();
+        $array .= '<li>'.
+            '<a href="' . Mage::getUrl($cat->getUrlPath()). '">' .
+            $category->getName() . "(".$count.")</a>\n";
+        if($category->hasChildren()) {
+            $children = Mage::getModel('catalog/category')->getCategories($category->getId());
+            $array .=  get_categories($children);
+        }
+        $array .= '</li>';
+    }
+    return  $array . '</ul>';
+}
+echo  get_categories($categories); ?>

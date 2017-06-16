@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <!-- Top menu -->
+        <megamenu>
+            <title>Megamenu</title>
+            <sort_order>710</sort_order>
+            <children>
+                <megamenu_management>
+                    <title>Management</title>
+                    <action>adminhtml/megamenu/index</action>
+                </megamenu_management>
+                <megamenu_config>
+                    <title>Configuration</title>
+                    <action>adminhtml/system_config/edit/section/megamenu_config/</action>
+                </megamenu_config>
+            </children>
+        </megamenu>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <!-- Top menu -->
+                    <megamenu>
+                        <title>Megamenu</title>
+                        <sort_order>10</sort_order>
+                        <children>
+                            <megamenu_management>
+                                <title>Management Section</title>
+                            </megamenu_management>
+                        </children>
+                    </megamenu>
+                    <!-- System Config Section-->
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <megamenu_config>
+                                        <title>Megamenu Section</title>
+                                        <sort_order>10</sort_order>
+                                    </megamenu_config>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
