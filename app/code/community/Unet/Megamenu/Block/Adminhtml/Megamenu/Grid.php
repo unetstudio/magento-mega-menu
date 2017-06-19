@@ -5,8 +5,8 @@
  * Date: 13/08/2015
  * Time: 08:47
  */
-class Unet_Megamenu_Block_Adminhtml_Megamenu_Grid extends Mage_Adminhtml_Block_Widget_Grid {
-
+class Unet_Megamenu_Block_Adminhtml_Megamenu_Grid extends Mage_Adminhtml_Block_Widget_Grid
+{
     public function __construct()
     {
         parent::__construct();
@@ -15,7 +15,6 @@ class Unet_Megamenu_Block_Adminhtml_Megamenu_Grid extends Mage_Adminhtml_Block_W
         $this->setDefaultDir('DESC');
         $this->setSaveParametersInSession(true);
         $this->setUseAjax(true);
-
     }
 
     protected function _prepareCollection()
@@ -31,7 +30,8 @@ class Unet_Megamenu_Block_Adminhtml_Megamenu_Grid extends Mage_Adminhtml_Block_W
             'index' => 'item_id',
             'header' => Mage::helper('megamenu')->__('Item Id'),
             'width' => '50px',
-        ));
+            )
+        );
         $this->addColumn('item_name', array(
             'index' => 'item_name',
             'header' => Mage::helper('megamenu')->__('Item Name'),
@@ -132,7 +132,8 @@ class Unet_Megamenu_Block_Adminhtml_Megamenu_Grid extends Mage_Adminhtml_Block_W
     /**
      * Display massaction
      */
-    protected function _prepareMassaction(){
+    protected function _prepareMassaction()
+    {
         $this->setMassactionIdField('item_id');
         $this->getMassactionBlock()->setFormFieldName('megamenu');
         $this->getMassactionBlock()->addItem('delete', array(

@@ -7,7 +7,6 @@
  */
 class Unet_Megamenu_Block_Adminhtml_Megamenu_Edit_Tabs extends Mage_Adminhtml_Block_Widget_Tabs
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -15,6 +14,4 @@ class Unet_Megamenu_Block_Adminhtml_Megamenu_Edit_Tabs extends Mage_Adminhtml_Bl
         $this->setDestElementId('edit_form');
         $this->setTitle(Mage::helper('adminhtml')->__('Menu Infomation'));
     }
-
-
 }

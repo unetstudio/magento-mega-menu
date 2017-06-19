@@ -1,7 +1,7 @@
 <?php
 class Unet_Megamenu_Model_System_Config_Source_Categories
 {
-//    public function toOptionArray()
+    //    public function toOptionArray()
 //    {
 //        $categories = Mage::getSingleton('adminhtml/system_store')->getStoreValuesForForm(false, true);
 //        Zend_Debug::dump($categories);
@@ -16,8 +16,7 @@ class Unet_Megamenu_Model_System_Config_Source_Categories
         $values[$node->getId()]['label'] = str_repeat("--", $level-1) . $node->getName();
 
 
-        foreach ($node->getChildren() as $child)
-        {
+        foreach ($node->getChildren() as $child) {
             $values = $this->buildCategoriesMultiselectValues($child, $values, $level);
         }
 
@@ -29,7 +28,7 @@ class Unet_Megamenu_Model_System_Config_Source_Categories
         $tree = Mage::getResourceSingleton('catalog/category_tree')->load();
 
         $store = Mage::app()->getStore()->getStoreId();
-        if(!$store){
+        if (!$store) {
             $store = 1;
         }
         $parentId = Mage::app()->getStore($store)->getRootCategoryId();
@@ -38,8 +37,7 @@ class Unet_Megamenu_Model_System_Config_Source_Categories
 
         $root = $tree->getNodeById($parentId);
 
-        if($root && $root->getId() == 1)
-        {
+        if ($root && $root->getId() == 1) {
             $root->setName(Mage::helper('catalog')->__('Root'));
         }
 

@@ -13,4 +13,4 @@ install:
   - composer install --prefer-dist
 
 script:
-  - php vendor/bin/phpcs --standard=Zend --exclude=Generic.Files.LineLength app/code/
+  - php vendor/bin/phpcs --standard=Zend app/code/

@@ -8,14 +8,14 @@
 $installer = $this;
 $tableName = $installer->getTable('megamenu/megamenu');
 $installer->startSetup();
-if($installer->getConnection()->isTableExists($tableName) != true){
+if ($installer->getConnection()->isTableExists($tableName) != true) {
     $table = $installer->getConnection()->newTable($tableName)
         ->addColumn('item_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
                 'identity' => true,
                 'unsigned' => true,
                 'nullable' => false,
                 'primary' => true,
-            ), 'Item ID')
+        ), 'Item ID')
         ->addColumn('item_name', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array(
             'nullable' => false,
         ), 'Item Name')
@@ -52,6 +52,5 @@ if($installer->getConnection()->isTableExists($tableName) != true){
 
 
     $installer->getConnection()->createTable($table);
-
 }
 $installer->endSetup();

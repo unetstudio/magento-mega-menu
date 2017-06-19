@@ -5,8 +5,10 @@
  * Date: 27/08/2015
  * Time: 22:02
  */
-class Unet_Megamenu_Block_Adminhtml_Megamenu_Renderer_Sort extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Input {
-    public function render(Varien_Object $row){
+class Unet_Megamenu_Block_Adminhtml_Megamenu_Renderer_Sort extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Input
+{
+    public function render(Varien_Object $row)
+    {
         $html = '<input type="number" ';
         $html .= 'name="' . $this->getColumn()->getId() . '" ';
         $html .= 'value="' . $row->getData($this->getColumn()->getIndex()) . '"';

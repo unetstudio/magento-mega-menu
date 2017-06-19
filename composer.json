@@ -20,9 +20,9 @@
         "phpdocumentor/phpdocumentor": "^2.8"
     },
     "scripts": {
-        "test": [
-          "phpcs"
-        ]
+        "phpcs": "php vendor/bin/phpcs --standard=Zend app/code/",
+        "phpcs-fixer": "php vendor/bin/php-cs-fixer fix app/code/",
+        "phpdoc": "php vendor/bin/phpdoc -d . -t docs/api"
     },
     "extra": {
         "magento-root-dir": "root"

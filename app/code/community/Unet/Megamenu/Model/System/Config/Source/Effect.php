@@ -5,8 +5,10 @@
  * Date: 23/08/2015
  * Time: 21:04
  */
-class Unet_Megamenu_Model_System_Config_Source_Effect {
-    public function toOptionArray(){
+class Unet_Megamenu_Model_System_Config_Source_Effect
+{
+    public function toOptionArray()
+    {
         return array(
             array(
                 'value' => 'hover',

@@ -1,13 +1,15 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: duc
  * Date: 18/08/2015
  * Time: 11:22
  */
-class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu {
-
-    public function __construct(){
+class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
+{
+    public function __construct()
+    {
         parent::__construct();
         $this->setTemplate('Unet/megamenu/megamenu.phtml');
     }
@@ -15,12 +17,13 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
     /**
      * get mega menu
      */
-    public function getMegamenu(){
+    public function getMegamenu()
+    {
         $menus = Mage::getModel("megamenu/megamenu")->getCollection();
-        $menus->setOrder('sort_order','ASC');
+        $menus->setOrder('sort_order', 'ASC');
         $result = "";
-        foreach($menus as $item){
-            if($item->getStatus() == 1){
+        foreach ($menus as $item) {
+            if ($item->getStatus() == 1) {
                 $result .= $this->getItem($item);
             }
         }
@@ -29,10 +32,9 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
          * Select Effect
          */
         $effect = Mage::getStoreConfig('megamenu_config/general/menu_effect');
-        if($effect == 'click'){
+        if ($effect == 'click') {
             $result .= '<script type="text/javascript" src="http://localhost/magento.vn/js/Unet/megamenu/main_click.js"></script>';
-        }
-        else {
+        } else {
             $result .= '<script type="text/javascript" src="http://localhost/magento.vn/js/Unet/megamenu/main_hover.js"></script>';
         }
         return $result;
@@ -42,10 +44,11 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
      * @param $item
      * @return string of content_type of item
      */
-    public function getItem($item){
+    public function getItem($item)
+    {
         $result = "";
         $content_type = explode("_", $item->getContent_type());
-        switch($content_type[0]){
+        switch ($content_type[0]) {
             case 'link':
                 $result .= $this->getLinkItem($item);
                 break;
@@ -72,21 +75,22 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
      * @param $item
      * @return string contain anchor link
      */
-    public function getLinkItem($item){
+    public function getLinkItem($item)
+    {
         return '<li>
-                <a href="'.$item->getItem_link().'">'.$item->getItem_name().'</a>
+                <a href="' . $item->getItem_link() . '">' . $item->getItem_name() . '</a>
             </li>';
-
     }
 
     /**
      * @param $item
      * @return string contain content item
      */
-    public function getContentItem($item){
+    public function getContentItem($item)
+    {
         $content = "";
         $content .= '<li class="has-childrens">
-                    <a href="#">'.$item->getItem_name().'</a>
+                    <a href="#">' . $item->getItem_name() . '</a>
                     <ul class="cd-nav-icons megamenu-content is-hidden">';
         $content .= $item->getContent();
         $content .= '</ul></li>';
@@ -97,12 +101,13 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
      * @param $item
      * @return string contain login item
      */
-    public function getLoginItem($item){
+    public function getLoginItem($item)
+    {
         return '<li class="has-childrens">
-                <a href="#">'.$item->getItem_name().'</a>
+                <a href="#">' . $item->getItem_name() . '</a>
                <ul class="form-list cd-nav-icons is-hidden">
-                <form action="'.$this->getUrl('customer/account/loginPost').'" method="post" id="login-form" class="scaffold-form">
-                    '.$this->getBlockHtml('formkey').'
+                <form action="' . $this->getUrl('customer/account/loginPost') . '" method="post" id="login-form" class="scaffold-form">
+                    ' . $this->getBlockHtml('formkey') . '
                         <li style="float: none;">
                             <label for="email" class="required"><em>*</em>Email Address</label>
                             <div class="input-box">
@@ -124,7 +129,6 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
                 </form>
                </ul>
             </li>';
-
     }
 
     /**
@@ -136,7 +140,7 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
         return '<li class="has-childrens">
 	<a href="#">' . $item->getItem_name() . '</a>
 	<ul class="cd-nav-icons is-hidden">
-		<form action="'.$this->getUrl('contacts/index/post').'" id="contactForm" method="post" class="scaffold-form">
+		<form action="' . $this->getUrl('contacts/index/post') . '" id="contactForm" method="post" class="scaffold-form">
 			<div class="fieldset">
 				<ul class="form-list">
 					<li class="fields">
@@ -180,19 +184,23 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
      * @param $item
      * @return string contain product item
      */
-    public function getProductItem($item){
+    public function getProductItem($item)
+    {
         $result = "";
         $content_type = explode("_", $item->getContent_type());
-        switch($content_type[1]){
-            case 'bestseller' :
+        switch ($content_type[1]) {
+            case 'bestseller':
                 $result .= $this->getProductBMItem($item);
                 break;
-            case 'mostview' :
+            case 'mostview':
                 $result .= $this->getProductBMItem($item);
                 break;
             case 'select':
-                if($content_type[2] == 'grid') $result .= $this->getProductGridItem($item);
-                else if($content_type[2] == 'list') $result .= $this->getProductListingItem($item);
+                if ($content_type[2] == 'grid') {
+                    $result .= $this->getProductGridItem($item);
+                } elseif ($content_type[2] == 'list') {
+                    $result .= $this->getProductListingItem($item);
+                }
                 break;
         }
         return $result;
@@ -201,80 +209,87 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
     /**
      * get product bestseller or mostview
      */
-    public function getProductBMItem($item){
+    public function getProductBMItem($item)
+    {
         $result = "";
         $result .= '<li class="has-childrens">
-				<a href="#">'.$item->getItem_name().'</a>
+				<a href="#">' . $item->getItem_name() . '</a>
 				<ul class="cd-nav-gallery product-grid is-hidden">
 					<li class="go-back"><a href="#">Menu</a></li>';
 
         $product_ids = explode(",", $item->getContent());
-        foreach($product_ids as $id){
-            if($id and !empty($id)){
+        foreach ($product_ids as $id) {
+            if ($id and !empty($id)) {
                 $_product = Mage::getModel('catalog/product')->load(trim($id));
-                if(Mage::getStoreConfig('megamenu_config/product_grid/visible_name'))
-                    $name = '<h4>'.$_product->getName().'</h4>';
-                if(Mage::getStoreConfig('megamenu_config/product_grid/visible_price'))
-                    $price = '<h4 id="price">'.Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol().$_product->getPrice().'</h4>';
-                $result .='<li>
-						<a class="cd-nav-item" href="'.Mage::getBaseUrl().'/'.$_product->getUrl_path().'">
-							<img src="'.Mage::helper('catalog/image')->init($_product , 'thumbnail').'" alt="Product Image">
-                            '.$name.''.$price.'
+                if (Mage::getStoreConfig('megamenu_config/product_grid/visible_name')) {
+                    $name = '<h4>' . $_product->getName() . '</h4>';
+                }
+                if (Mage::getStoreConfig('megamenu_config/product_grid/visible_price')) {
+                    $price = '<h4 id="price">' . Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol() . $_product->getPrice() . '</h4>';
+                }
+                $result .= '<li>
+						<a class="cd-nav-item" href="' . Mage::getBaseUrl() . '/' . $_product->getUrl_path() . '">
+							<img src="' . Mage::helper('catalog/image')->init($_product, 'thumbnail') . '" alt="Product Image">
+                            ' . $name . '' . $price . '
 						</a>
 					</li>';
             }
         }
 
-        $result .='</ul></li>';
+        $result .= '</ul></li>';
         return $result;
     }
 
     /**
      * get product grid
      */
-    public function getProductGridItem($item){
+    public function getProductGridItem($item)
+    {
         $result = "";
         $result .= '<li class="has-childrens">
-				<a href="#">'.$item->getItem_name().'</a>
+				<a href="#">' . $item->getItem_name() . '</a>
 				<ul class="cd-nav-gallery product-grid is-hidden">
 					<li class="go-back"><a href="#">Menu</a></li>';
 
         $product_sku = explode(",", $item->getContent());
-        foreach($product_sku as $sku){
-            if($sku and !empty($sku)){
+        foreach ($product_sku as $sku) {
+            if ($sku and !empty($sku)) {
                 $_product = Mage::getModel('catalog/product')->loadByAttribute('sku', trim($sku));
-                if(Mage::getStoreConfig('megamenu_config/product_grid/visible_name'))
-                    $name = '<h4>'.$_product->getName().'</h4>';
-                if(Mage::getStoreConfig('megamenu_config/product_grid/visible_price'))
-                    $price = '<h4 id="price">'.Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol().$_product->getPrice().'</h4>';
-                $result .='<li>
-						<a class="cd-nav-item" href="'.Mage::getBaseUrl().'/'.$_product->getUrl_path().'">
-							<img src="'.Mage::helper('catalog/image')->init($_product , 'thumbnail').'" alt="Product Image">
-							'.$name.''.$price.'
+                if (Mage::getStoreConfig('megamenu_config/product_grid/visible_name')) {
+                    $name = '<h4>' . $_product->getName() . '</h4>';
+                }
+                if (Mage::getStoreConfig('megamenu_config/product_grid/visible_price')) {
+                    $price = '<h4 id="price">' . Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol() . $_product->getPrice() . '</h4>';
+                }
+                $result .= '<li>
+						<a class="cd-nav-item" href="' . Mage::getBaseUrl() . '/' . $_product->getUrl_path() . '">
+							<img src="' . Mage::helper('catalog/image')->init($_product, 'thumbnail') . '" alt="Product Image">
+							' . $name . '' . $price . '
 						</a>
 					</li>';
             }
         }
 
-        $result .='</ul></li>';
+        $result .= '</ul></li>';
         return $result;
     }
 
     /**
      * get product listing
      */
-    public function getProductListingItem($item){
+    public function getProductListingItem($item)
+    {
         $result = "";
         $result .= '<li class="has-childrens">
-				<a href="#">'.$item->getItem_name().'</a>
+				<a href="#">' . $item->getItem_name() . '</a>
 				<ul class="cd-nav-icons is-hidden">
 					<li class="go-back"><a href="#">Menu</a></li>';
         $product_sku = explode(",", $item->getContent());
-        foreach($product_sku as $sku){
+        foreach ($product_sku as $sku) {
             $_product = Mage::getModel('catalog/product')->loadByAttribute('sku', trim($sku));
             $result .= '<li>
-						<a class="cd-nav-item" href="'.Mage::getBaseUrl().'/'.$_product->getUrl_path().'">
-						    <h5>'.$_product->getName().'</h5>
+						<a class="cd-nav-item" href="' . Mage::getBaseUrl() . '/' . $_product->getUrl_path() . '">
+						    <h5>' . $_product->getName() . '</h5>
 						</a>
 					</li>';
         }
@@ -285,21 +300,22 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
     /**
      * get all categories item
      */
-    public function getCategoryItem($item){
+    public function getCategoryItem($item)
+    {
         $result = "";
         $content_type = explode("_", $item->getContent_type());
         $rootcatId = Mage::app()->getStore()->getRootCategoryId();
         $categories = Mage::getModel('catalog/category')->getCategories($rootcatId);
         $result .= '<li class="has-childrens">
-                            <a href="#">'.$item->getItem_name().'</a>';
-        switch($content_type[1]){
+                            <a href="#">' . $item->getItem_name() . '</a>';
+        switch ($content_type[1]) {
             case 'all':
                 $result .= $this->getAllCategoryItem($categories, "", false);
                 break;
             case 'select':
                 $categories_select_ids = explode(",", $item->getContent());
                 $categories_ids = array();
-                foreach($categories_select_ids as $id){
+                foreach ($categories_select_ids as $id) {
                     $categories_ids[] = trim($id);
                 }
                 $result .= $this->getAllCategoryItem($categories, $categories_ids, false, "");
@@ -309,67 +325,72 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
         return $result;
     }
 
-    public function getAllCategoryItem($categories, $categories_select_ids = "", $is_first, $all){
-        if(!$is_first) $array = '<ul class="cd-secondary-nav is-hidden">';
-        else $array = '<ul class="is-hidden">';
+    public function getAllCategoryItem($categories, $is_first, $all, $categories_select_ids = "")
+    {
+        if (!$is_first) {
+            $array = '<ul class="cd-secondary-nav is-hidden">';
+        } else {
+            $array = '<ul class="is-hidden">';
+        }
         $array .= '<li class="go-back"><a href="#">Back</a></li>';
         $array .= $all;
-        foreach($categories as $category){
+        foreach ($categories as $category) {
             $id = $category->getId();
-            if(is_array($categories_select_ids)){
-                if(!in_array($id, $categories_select_ids)) continue;
+            if (is_array($categories_select_ids)) {
+                if (!in_array($id, $categories_select_ids)) {
+                    continue;
+                }
             }
             $cat = Mage::getModel('catalog/category')->load($id);
             $count = $cat->getProductCount();
-            if($category->hasChildren())  {
-
+            if ($category->hasChildren()) {
                 $array .= '<li class="has-children">';
                 $array .= '<a href="#">
-                        '.$category->getName().'('.$count.')
-                    </a>'."\n";
+                        ' . $category->getName() . '(' . $count . ')
+                    </a>' . "\n";
 
-                $_all = '<li><a href="'.Mage::getUrl($cat->getUrlPath()).'">
-                        All '.$category->getName().'('.$count.')
+                $_all = '<li><a href="' . Mage::getUrl($cat->getUrlPath()) . '">
+                        All ' . $category->getName() . '(' . $count . ')
                     </a></li>';
-            }
-            else  {
+            } else {
                 $array .= '<li>';
-                $array .= '<a href="'.Mage::getUrl($cat->getUrlPath()).'">
-                        '.$category->getName().'('.$count.')
-                    </a>'."\n";
+                $array .= '<a href="' . Mage::getUrl($cat->getUrlPath()) . '">
+                        ' . $category->getName() . '(' . $count . ')
+                    </a>' . "\n";
             }
 
-            if($category->hasChildren()){
+            if ($category->hasChildren()) {
                 $children = Mage::getModel('catalog/category')->getCategories($category->getId());
                 $array .= $this->getAllCategoryItem($children, $categories_select_ids, true, $_all);
             }
             $array .= '</li>';
         }
-        return $array .'</ul>';
+        return $array . '</ul>';
     }
 
     /**
      * Custom style sheet
      */
-    public function style(){
+    public function style()
+    {
         $style = "<style>";
         /**
          * Menu
          */
         // Width
         $menu_width = (Mage::getStoreConfig('megamenu_config/menu/width') != "")
-            ? Mage::getStoreConfig('megamenu_config/menu/width')."px" : 'auto';
+            ? Mage::getStoreConfig('megamenu_config/menu/width') . "px" : 'auto';
         // Height
         $menu_height = (Mage::getStoreConfig('megamenu_config/menu/height') != "")
-            ? Mage::getStoreConfig('megamenu_config/menu/height')."px" : 'auto';
+            ? Mage::getStoreConfig('megamenu_config/menu/height') . "px" : 'auto';
         // Background
         $menu_background = (Mage::getStoreConfig('megamenu_config/menu/background') != "FFFFFF")
             ? Mage::getStoreConfig('megamenu_config/menu/background') : 'FFFFFF';
         $style .= "
                 .cd-primary-nav {
-                    width: ".$menu_width." !important;
-                    height: ".$menu_height." !important;
-                    background: #".$menu_background." !important;
+                    width: " . $menu_width . " !important;
+                    height: " . $menu_height . " !important;
+                    background: #" . $menu_background . " !important;
                 }
         ";
         /**
@@ -380,7 +401,7 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
             ? Mage::getStoreConfig('megamenu_config/item/item_align') : "center";
         // Item Width
         $item_width = (Mage::getStoreConfig('megamenu_config/item/item_width') != "")
-            ? Mage::getStoreConfig('megamenu_config/item/item_width')."px" : "auto";
+            ? Mage::getStoreConfig('megamenu_config/item/item_width') . "px" : "auto";
         // Item Height
         $item_height = (Mage::getStoreConfig('megamenu_config/item/') != "60")
             ? Mage::getStoreConfig('megamenu_config/item/item_height') : "60";
@@ -405,26 +426,26 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
 
         $style .= "
             .cd-primary-nav > li > a {
-                text-align: ".$item_align." !important;
-                width: ".$item_width." !important;
-                height: ".$item_height."px !important;
-                line-height: ".$item_height."px !important;
-                font-size: ".$item_size."% !important;
-                text-transform: ".$item_label." !important;
-                background: #".$menu_background." !important;
-                color: #".$item_color." !important;
-                font-weight: ".$item_style." !important;
+                text-align: " . $item_align . " !important;
+                width: " . $item_width . " !important;
+                height: " . $item_height . "px !important;
+                line-height: " . $item_height . "px !important;
+                font-size: " . $item_size . "% !important;
+                text-transform: " . $item_label . " !important;
+                background: #" . $menu_background . " !important;
+                color: #" . $item_color . " !important;
+                font-weight: " . $item_style . " !important;
             }
             .cd-primary-nav > li > a:hover {
-                background: #".$item_select_background." !important;
-                color: #".$item_select_color." !important;
-                //box-shadow: inset 0 -2px 0 #".$item_select_color." !important;
+                background: #" . $item_select_background . " !important;
+                color: #" . $item_select_color . " !important;
+                //box-shadow: inset 0 -2px 0 #" . $item_select_color . " !important;
             }
 
             .cd-primary-nav > .has-childrens > a::before,
 
             .cd-primary-nav > .has-childrens > a::after {
-                background: #".$item_select_color." !important;
+                background: #" . $item_select_color . " !important;
             }
 
         ";
@@ -446,37 +467,37 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
         $style .= "
             // category link
             li.has-childrens .cd-primary-nav .cd-secondary-nav, .cd-primary-nav .cd-nav-gallery, .cd-primary-nav .cd-nav-icons {
-                width: ".$sub_width."vw !important;
-                background: #".$sub_background." !important;
+                width: " . $sub_width . "vw !important;
+                background: #" . $sub_background . " !important;
             }
 
             li.has-childrens ul.selected li > a {
-                color: #".$sub_link_hover_color." !important;
+                color: #" . $sub_link_hover_color . " !important;
             }
             li.has-childrens ul.selected li ul a {
-                color: #".$sub_link_color." !important;
+                color: #" . $sub_link_color . " !important;
             }
 
 
             .has-children > a:hover::before, .has-children > a:hover::after,
             .go-back a:hover::before, .go-back a:hover::after {
-                background: #".$sub_link_hover_color." !important;
+                background: #" . $sub_link_hover_color . " !important;
             }
 
             li.has-childrens ul.selected li > a:hover {
-                color: #".$sub_link_hover_color." !important;
+                color: #" . $sub_link_hover_color . " !important;
             }
 
             // product link
             .cd-primary-nav .cd-nav-icons .cd-nav-item h5 {
-                color: #".$sub_link_color." !important;
+                color: #" . $sub_link_color . " !important;
             }
             .cd-primary-nav .cd-nav-icons .cd-nav-item:hover h5 {
-                color: #".$sub_link_hover_color." !important;
+                color: #" . $sub_link_hover_color . " !important;
             }
 
              .cd-primary-nav .cd-secondary-nav > li > a {
-                 color: #".$sub_link_hover_color." !important;
+                 color: #" . $sub_link_hover_color . " !important;
             }
         ";
 
@@ -488,10 +509,10 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
             ? Mage::getStoreConfig('megamenu_config/product_grid/image_hover_color') : "3399CC";
         $style .= "
             ul.product-grid img:hover {
-                border: 1px solid #".$image_hover_color." !important;
+                border: 1px solid #" . $image_hover_color . " !important;
             }
             ul.product-grid h4#price {
-                color: #".$image_hover_color." !important;
+                color: #" . $image_hover_color . " !important;
             }
         ";
 

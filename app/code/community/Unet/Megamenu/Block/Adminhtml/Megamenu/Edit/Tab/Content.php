@@ -5,12 +5,8 @@
  * Date: 17/08/2015
  * Time: 16:41
  */
-class Unet_Megamenu_Block_Adminhtml_Megamenu_Edit_Tab_Content
-    extends Mage_Adminhtml_Block_Widget_Form
-    implements Mage_Adminhtml_Block_Widget_Tab_Interface
+class Unet_Megamenu_Block_Adminhtml_Megamenu_Edit_Tab_Content extends Mage_Adminhtml_Block_Widget_Form implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {
-
-
     protected function _prepareForm()
     {
         $model = Mage::registry('megamenu');
@@ -127,9 +123,8 @@ class Unet_Megamenu_Block_Adminhtml_Megamenu_Edit_Tab_Content
         // Product Chooser
         $fieldset->addType('product', 'Unet_Megamenu_Block_Adminhtml_Megamenu_Edit_Tab_Renderer_Product');
         $action = "getProductChooser('" . Mage::getUrl(
-                'adminhtml/promo_widget/chooser/attribute/sku/form/rule_conditions_fieldset',
-                array('_secure' => Mage::app()->getStore()->isAdminUrlSecure())
-            ) . "?isAjax=true')";
+            'adminhtml/promo_widget/chooser/attribute/sku/form/rule_conditions_fieldset',
+        array('_secure' => Mage::app()->getStore()->isAdminUrlSecure())) . "?isAjax=true')";
         // Add product SKU text preview
         $fieldset->addField('product_sku', 'product', array(
             'label' => 'Product List',
@@ -171,7 +166,6 @@ class Unet_Megamenu_Block_Adminhtml_Megamenu_Edit_Tab_Content
          * Set dependence
          */
         $this->setChild('form_after',
-
             $this->getLayout()->createBlock('adminhtml/widget_form_element_dependence')
 
                 ->addFieldMap('content_type', 'content_type_id')
@@ -222,13 +216,11 @@ class Unet_Megamenu_Block_Adminhtml_Megamenu_Edit_Tab_Content
                 ->addFieldDependence('category_type_id', 'content_type_id', 'category')
                 ->addFieldDependence('categories_list_id', 'content_type_id', 'category')
                 ->addFieldDependence('categories_list_id', 'category_type_id', 'select')
-
-
         );
 
         $this->setChild('form_after',
-                $this->getLayout()->createBlock('categorytab/adminhtml_categorytab_edit_tab_main')
-            );
+            $this->getLayout()->createBlock('categorytab/adminhtml_categorytab_edit_tab_main')
+        );
 
         return parent::_prepareForm();
     }

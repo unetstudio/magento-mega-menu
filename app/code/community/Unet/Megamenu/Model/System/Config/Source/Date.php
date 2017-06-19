@@ -5,8 +5,7 @@
  * Date: 23/08/2015
  * Time: 21:25
  */
-class Unet_Megamenu_Model_System_Config_Source_Date
-    extends Mage_Adminhtml_Block_System_Config_Form_Field
+class Unet_Megamenu_Model_System_Config_Source_Date extends Mage_Adminhtml_Block_System_Config_Form_Field
 {
     protected function _getElementHtml(Varien_Data_Form_Element_Abstract $element)
     {

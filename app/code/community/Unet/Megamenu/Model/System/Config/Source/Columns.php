@@ -22,5 +22,4 @@ class Unet_Megamenu_Model_System_Config_Source_Columns
             array('value' => 3, 'label'=>Mage::helper('adminhtml')->__('Right')),
         );
     }
-
 }

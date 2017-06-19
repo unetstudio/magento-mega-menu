@@ -5,8 +5,10 @@
  * Date: 17/08/2015
  * Time: 09:24
  */
-class Unet_Megamenu_Model_Megamenu extends Mage_Core_Model_Abstract {
-    protected function _construct(){
+class Unet_Megamenu_Model_Megamenu extends Mage_Core_Model_Abstract
+{
+    protected function _construct()
+    {
         $this->_init('megamenu/megamenu');
     }
 
@@ -14,7 +16,8 @@ class Unet_Megamenu_Model_Megamenu extends Mage_Core_Model_Abstract {
      * @return array for display status option
      */
 
-    public function toStatusOption(){
+    public function toStatusOption()
+    {
         return array(
             array(
                 'value' => 1,
@@ -30,7 +33,8 @@ class Unet_Megamenu_Model_Megamenu extends Mage_Core_Model_Abstract {
     /**
      * @return array for display menu type option
      */
-    public function toMenuTypeOption(){
+    public function toMenuTypeOption()
+    {
         return array(
             array(
                 'value' => 'topmenu',
@@ -46,7 +50,8 @@ class Unet_Megamenu_Model_Megamenu extends Mage_Core_Model_Abstract {
     /**
      * @return array for display content type option
      */
-    public function toContentTypeOption(){
+    public function toContentTypeOption()
+    {
         return array(
             array(
                 'value' => '',
@@ -82,11 +87,12 @@ class Unet_Megamenu_Model_Megamenu extends Mage_Core_Model_Abstract {
     /**
      * List all cms page
      */
-    public function toCmsPageOption(){
+    public function toCmsPageOption()
+    {
         $pages = Mage::getModel('cms/page')->getCollection()->getData();
         $options = array();
         $i = 0;
-        foreach($pages as $key => $value){
+        foreach ($pages as $key => $value) {
             $options[$i]['label'] = $value['title'];
             $options[$i]['value'] = $value['identifier'];
             $i++;
@@ -105,8 +111,7 @@ class Unet_Megamenu_Model_Megamenu extends Mage_Core_Model_Abstract {
         $values[$node->getId()]['label'] = str_repeat("--", $level-1) . $node->getName();
 
 
-        foreach ($node->getChildren() as $child)
-        {
+        foreach ($node->getChildren() as $child) {
             $values = $this->buildCategoriesMultiselectValues($child, $values, $level);
         }
 
@@ -118,7 +123,7 @@ class Unet_Megamenu_Model_Megamenu extends Mage_Core_Model_Abstract {
         $tree = Mage::getResourceSingleton('catalog/category_tree')->load();
 
         $store = Mage::app()->getStore()->getStoreId();
-        if(!$store){
+        if (!$store) {
             $store = 1;
         }
         $parentId = Mage::app()->getStore($store)->getRootCategoryId();
@@ -127,8 +132,7 @@ class Unet_Megamenu_Model_Megamenu extends Mage_Core_Model_Abstract {
 
         $root = $tree->getNodeById($parentId);
 
-        if($root && $root->getId() == 1)
-        {
+        if ($root && $root->getId() == 1) {
             $root->setName(Mage::helper('catalog')->__('Root'));
         }
 

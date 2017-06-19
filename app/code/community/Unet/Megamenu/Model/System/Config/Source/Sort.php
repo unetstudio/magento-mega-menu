@@ -5,8 +5,10 @@
  * Date: 12/08/2015
  * Time: 16:12
  */
-class Unet_Megamenu_Model_System_Config_Source_Sort {
-    public function toOptionArray(){
+class Unet_Megamenu_Model_System_Config_Source_Sort
+{
+    public function toOptionArray()
+    {
         return array(
             array('value' => 'none', 'label' => Mage::helper('adminhtml')->__('Normal')),
             array('value' => 'date_newest', 'label' => Mage::helper('adminhtml')->__('Date (Newest)')),

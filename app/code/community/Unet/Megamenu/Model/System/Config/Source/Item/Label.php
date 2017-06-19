@@ -5,8 +5,10 @@
  * Date: 27/08/2015
  * Time: 09:23
  */
-class Unet_Megamenu_Model_System_Config_Source_Item_Label {
-    public function toOptionArray(){
+class Unet_Megamenu_Model_System_Config_Source_Item_Label
+{
+    public function toOptionArray()
+    {
         return array(
             array(
                 'value' => 'none',

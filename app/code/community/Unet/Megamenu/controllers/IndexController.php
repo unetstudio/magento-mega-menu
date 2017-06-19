@@ -1,25 +1,30 @@
-<?php  
+<?php 
 /**
- * 
+ *
  */
-class Unet_Megamenu_IndexController extends Mage_Core_Controller_Front_Action {
-    public function indexAction(){
+class Unet_Megamenu_IndexController extends Mage_Core_Controller_Front_Action
+{
+    public function indexAction()
+    {
         $this->loadLayout();
         $this->renderLayout();
     }
 
-    public function showAction(){
+    public function showAction()
+    {
         $model = Mage::getModel('megamenu/megamenu');
         var_dump($model);
     }
 
-    public function selectAction(){
+    public function selectAction()
+    {
         $this->loadLayout();
         $this->renderLayout();
     }
 
-    public function ajaxAction(){
-       $value = $this->getRequest()->getParam('value');
+    public function ajaxAction()
+    {
+        $value = $this->getRequest()->getParam('value');
         echo $value;
         exit;
     }
@@ -27,7 +32,8 @@ class Unet_Megamenu_IndexController extends Mage_Core_Controller_Front_Action {
     /**
      * demo bestseller and most view
      */
-    public static function bestsellerAction(){
+    public static function bestsellerAction()
+    {
         $storeId = Mage::app()->getStore()->getId();
         $products = Mage::getResourceModel('reports/product_collection')
             ->addOrderedQty()
@@ -44,12 +50,12 @@ class Unet_Megamenu_IndexController extends Mage_Core_Controller_Front_Action {
 
         $products->setPageSize(4)->setCurPage(1);
         $data = "";
-        foreach($products as $product){
+        foreach ($products as $product) {
             $data .= ",".$product->getSku();
         }
         $data = trim($data, ",");
         $product_sku = explode(",", $data);
-        foreach($product_sku as $sku){
+        foreach ($product_sku as $sku) {
             $_product = Mage::getModel('catalog/product')->loadByAttribute('sku', $sku);
         }
 //        return $data;
@@ -57,7 +63,8 @@ class Unet_Megamenu_IndexController extends Mage_Core_Controller_Front_Action {
         exit;
     }
 
-    public function mostviewAction(){
+    public function mostviewAction()
+    {
         $storeId = Mage::app()->getStore()->getId();
         $products = Mage::getResourceModel('reports/product_collection')
             ->addOrderedQty()
@@ -77,13 +84,11 @@ class Unet_Megamenu_IndexController extends Mage_Core_Controller_Front_Action {
         $products->setPageSize(3)->setCurPage(1);
 
         $data = "";
-        foreach($products as $product){
+        foreach ($products as $product) {
             $data .= ",".$product->getSku();
         }
         $data = trim($data, ",");
         Zend_Debug::dump($data);
         exit;
     }
-
-
 }

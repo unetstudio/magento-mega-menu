@@ -5,11 +5,8 @@
  * Date: 17/08/2015
  * Time: 16:41
  */
-class Unet_Megamenu_Block_Adminhtml_Megamenu_Edit_Tab_Main
-    extends Mage_Adminhtml_Block_Widget_Form
-    implements Mage_Adminhtml_Block_Widget_Tab_Interface
+class Unet_Megamenu_Block_Adminhtml_Megamenu_Edit_Tab_Main extends Mage_Adminhtml_Block_Widget_Form implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {
-
     protected function _prepareForm()
     {
         $model = Mage::registry('megamenu');

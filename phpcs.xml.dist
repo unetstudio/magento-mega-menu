@@ -5,7 +5,10 @@
     <arg name="colors"/>
     <rule ref="Zend">
         <exclude name="Generic.Files.LineLength"/>
+        <exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>
+        <exclude name="Zend.NamingConventions.ValidVariableName.NotCamelCaps"/>
+        <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+        <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>
     </rule>
-    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
     <file>app/code</file>
 </ruleset>
