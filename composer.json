@@ -1,0 +1,27 @@
+{
+    "name": "unet/magento-mega-menu",
+    "description": "Mega menu module for Magento site",
+    "type": "magento-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Duc Dao",
+            "email": "huuduc.uneti@gmail.com"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8",
+        "squizlabs/php_codesniffer": "^2.5",
+        "friendsofphp/php-cs-fixer": "^2.2",
+        "phpdocumentor/phpdocumentor": "^2.8"
+    },
+    "scripts": {
+        "test": [
+          "phpcs"
+        ]
+    },
+}

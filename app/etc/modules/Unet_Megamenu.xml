@@ -3,7 +3,7 @@
     <modules>
         <Unet_Megamenu>
             <active>true</active>
-            <codePool>local</codePool>
+            <codePool>community</codePool>
         </Unet_Megamenu>
     </modules>
 </config>
