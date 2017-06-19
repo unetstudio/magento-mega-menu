@@ -1,18 +1,14 @@
-####################################
-#
-# Algolia Search
-#
-####################################
+# Unet Mega Menu
 
-app/etc/modules/Unet_Megamenu.xml                           		app/etc/modules/Unet_Megamenu.xml
-app/code/community/Unet/Megamenu                         			app/code/community/Unet/Megamenu
-app/design/frontend/base/default/layout/algoliasearch.xml           app/design/frontend/base/default/layout/algoliasearch.xml
-app/design/frontend/base/default/template/algoliasearch/            app/design/frontend/base/default/template/algoliasearch/
-app/design/adminhtml/default/default/layout/algoliasearch.xml       app/design/adminhtml/default/default/layout/algoliasearch.xml
-app/design/adminhtml/default/default/template/algoliasearch/        app/design/adminhtml/default/default/template/algoliasearch/
-app/locale/en_US/Algolia_Algoliasearch.csv                          app/locale/en_US/Algolia_Algoliasearch.csv
-app/locale/sv_SE/Algolia_Algoliasearch.csv                          app/locale/sv_SE/Algolia_Algoliasearch.csv
-app/locale/nl_NL/Algolia_Algoliasearch.csv                          app/locale/nl_NL/Algolia_Algoliasearch.csv
-skin/frontend/base/default/algoliasearch/                           skin/frontend/base/default/algoliasearch/
-js/algoliasearch/                                                   js/algoliasearch/
-lib/AlgoliaSearch/                                                  lib/AlgoliaSearch/
+app/etc/modules/Unet_Megamenu.xml                                            app/etc/modules/Unet_Megamenu.xml
+app/code/community/Unet/Megamenu/                                            app/code/community/Unet/Megamenu/
+app/design/frontend/base/default/layout/unet/megamenu/frontend.xml           app/design/frontend/base/default/layout/unet/megamenu/frontend.xml
+app/design/frontend/base/default/template/unet/megamenu/                     app/design/frontend/base/default/template/unet/megamenu/
+app/design/adminhtml/default/default/layout/unet/megamenu/admin.xml          app/design/adminhtml/default/default/layout/unet/megamenu/admin.xml
+app/design/adminhtml/default/default/template/unet/megamenu/                 app/design/adminhtml/default/default/template/unet/megamenu/
+skin/frontend/base/default/css/unet/                                         skin/frontend/base/default/css/unet/
+skin/adminhtml/default/default/unet/megamenu/                                skin/adminhtml/default/default/unet/megamenu/
+js/jscolor/                                                                  js/jscolor/
+js/lib/                                                                      js/lib/
+js/unet/                                                                     js/unet/
+media/unet/megamenu/                                                         media/unet/megamenu/
