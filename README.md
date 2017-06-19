@@ -1,10 +1,15 @@
-Megamenu for Magento
+Mega Menu for Magento
 ==================
 
 This extension replaces the default menu on Magento with a powerful, flexiable mega menu.
 
 ![Latest version](https://img.shields.io/badge/latest-1.0.0-green.svg)
 ![PHP >= 5.5](https://img.shields.io/badge/php-%3E=5.5-green.svg)
+
+Development Stage
+--------------
+
+Alpha version for developer environment
 
 Demo
 --------------
