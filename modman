@@ -8,7 +8,5 @@ app/design/adminhtml/default/default/layout/unet/megamenu/admin.xml          app
 app/design/adminhtml/default/default/template/unet/megamenu/                 app/design/adminhtml/default/default/template/unet/megamenu/
 skin/frontend/base/default/css/unet/                                         skin/frontend/base/default/css/unet/
 skin/adminhtml/default/default/unet/megamenu/                                skin/adminhtml/default/default/unet/megamenu/
-js/jscolor/                                                                  js/jscolor/
-js/lib/                                                                      js/lib/
 js/unet/                                                                     js/unet/
 media/unet/megamenu/                                                         media/unet/megamenu/
