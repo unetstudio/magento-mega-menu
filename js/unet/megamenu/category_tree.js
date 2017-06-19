@@ -4,8 +4,8 @@
 var visible = false;
 window.onload = function(){
     $("category_tree").style.display = "none";
-}
-getCategoryTree = function(url) {
+};
+var getCategoryTree = function(url) {
     if(visible){
         $("category_tree").style.display = "none";
         visible = false;
@@ -15,11 +15,11 @@ getCategoryTree = function(url) {
     $("category_tree").style.display = "block";
     new Ajax.Request(
         url, {
-            method: 'post',
+            method: "post",
             onSuccess: function(result){
                 var tree = $("category_tree");
                 tree.update(result.responseText);
             }
         }
     );
-}
+};

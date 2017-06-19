@@ -1,4 +1,4 @@
-var selectorVisible=false;
+var selectorVisible = false;
 
 getProductChooser = function (url) {
 
@@ -7,12 +7,12 @@ getProductChooser = function (url) {
      */
 
 
-    if(selectorVisible){
+    if (selectorVisible) {
         $("product_chooser").style.display = "none";
         selectorVisible = false;
         return;
     }
-    selectorVisible=true;
+    selectorVisible = true;
     $("product_chooser").style.display = "block";
     new Ajax.Request(
         url, {
@@ -244,7 +244,8 @@ VarienRulesForm.prototype = {
         var a = Element.up(b, "li");
         a.parentNode.removeChild(a)
     },
-    chooserGridInit: function (a) {},
+    chooserGridInit: function (a) {
+    },
     chooserGridRowInit: function (a, b) {
         if (!a.reloadParams) {
             a.reloadParams = {
@@ -281,8 +282,6 @@ VarienRulesForm.prototype = {
         };
 
         $("product_sku").value = this.chooserSelectedItems.keys().join(", ");
-
-
 
 
     }

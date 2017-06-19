@@ -4,7 +4,7 @@
   "description": "Mega menu for Magento",
   "main": "index.js",
   "scripts": {
-    "test": "eslint"
+    "test": "./node_modules/.bin/eslint js/unet/megamenu/*.js"
   },
   "repository": {
     "type": "git",
