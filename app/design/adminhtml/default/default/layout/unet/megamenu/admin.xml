@@ -45,7 +45,7 @@
     </default>
     <adminhtml_megamenu_index>
         <reference name="js">
-            <block type="core/template" template="Unet/megamenu/grid-inline.phtml"/>
+            <block type="core/template" template="unet/megamenu/grid-inline.phtml"/>
         </reference>
         <reference name="content">
             <block type="megamenu/adminhtml_megamenu" name="admin.megamenu"/>
@@ -66,19 +66,19 @@
                 <stylesheet>lib/prototype/windows/themes/magento.css</stylesheet>
             </action>
             <action method="addCss">
-                <stylesheet>Unet/megamenu/style.css</stylesheet>
+                <stylesheet>unet/megamenu/style.css</stylesheet>
             </action>
             <action method="addJs">
-                <script>Unet/megamenu/jquery-2.1.1.js</script>
+                <script>unet/megamenu/jquery-2.1.1.js</script>
             </action>
             <action method="addJs">
-                <script>Unet/megamenu/product_selector.js</script>
+                <script>unet/megamenu/product_selector.js</script>
             </action>
             <action method="addJs">
-                <script>Unet/megamenu/product_chooser.js</script>
+                <script>unet/megamenu/product_chooser.js</script>
             </action>
             <action method="addJs">
-                <script>Unet/megamenu/category_tree.js</script>
+                <script>unet/megamenu/category_tree.js</script>
             </action>
         </reference>
         <reference name="content">

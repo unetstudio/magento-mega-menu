@@ -8,26 +8,26 @@
         </reference>
         <reference name="head">
             <action method="addCss">
-                <stylesheet>css/Unet/megamenu/reset.css</stylesheet>
+                <stylesheet>css/unet/megamenu/reset.css</stylesheet>
             </action>
             <action method="addCss">
-                <stylesheet>css/Unet/megamenu/megamenu.css</stylesheet>
+                <stylesheet>css/unet/megamenu/megamenu.css</stylesheet>
             </action>
             <action method="addCss">
-                <stylesheet>css/Unet/megamenu/megamenus.css</stylesheet>
+                <stylesheet>css/unet/megamenu/megamenus.css</stylesheet>
             </action>
             <action method="addJs">
-                <script>Unet/megamenu/modernizr.js</script>
+                <script>unet/megamenu/modernizr.js</script>
             </action>
 
         </reference>
         <reference name="catalog.topnav">
             <action ifconfig="megamenu_config/general/is_enabled" method="setTemplate">
-                <template>Unet/megamenu/megamenu.phtml</template>
+                <template>unet/megamenu/megamenu.phtml</template>
             </action>
         </reference>
     </default>
     <megamenu_index_select>
-        <block type="megamenu/megamenu" name="root" output="toHtml" template="Unet/megamenu/select.phtml" />
+        <block type="megamenu/megamenu" name="root" output="toHtml" template="unet/megamenu/select.phtml" />
     </megamenu_index_select>
 </layout>

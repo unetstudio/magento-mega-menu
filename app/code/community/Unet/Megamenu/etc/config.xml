@@ -58,7 +58,7 @@
         <layout>
             <updates>
                 <megamenu>
-                    <file>Unet/megamenu/frontend.xml</file>
+                    <file>unet/megamenu/frontend.xml</file>
                 </megamenu>
             </updates>
         </layout>
@@ -78,7 +78,7 @@
         <layout>
             <updates>
                 <featured>
-                    <file>Unet/megamenu/admin.xml</file>
+                    <file>unet/megamenu/admin.xml</file>
                 </featured>
             </updates>
         </layout>
