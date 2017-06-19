@@ -24,4 +24,7 @@
           "phpcs"
         ]
     },
+    "extra": {
+        "magento-root-dir": "root"
+    }
 }

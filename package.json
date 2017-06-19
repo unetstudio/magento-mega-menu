@@ -1,0 +1,22 @@
+{
+  "name": "magento-mega-menu",
+  "version": "1.0.0",
+  "description": "Mega menu for Magento",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unetstudio/magento-mega-menu.git"
+  },
+  "author": "Duc Dao <huuduc.uneti@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unetstudio/magento-mega-menu/issues"
+  },
+  "homepage": "https://github.com/unetstudio/magento-mega-menu#readme",
+  "devDependencies": {
+    "eslint": "^4.0.0"
+  }
+}
