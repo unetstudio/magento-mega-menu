@@ -4,6 +4,11 @@
         <Unet_Megamenu>
             <active>true</active>
             <codePool>community</codePool>
+            <depends>
+                <Mage_Core/>
+                <Mage_Eav/>
+                <Mage_Catalog/>
+            </depends>
         </Unet_Megamenu>
     </modules>
 </config>

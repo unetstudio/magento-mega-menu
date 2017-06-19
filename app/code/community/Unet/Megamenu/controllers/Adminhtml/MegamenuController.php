@@ -425,7 +425,7 @@ class Unet_Megamenu_Adminhtml_MegamenuController extends Mage_Adminhtml_Controll
 //        $result .= '</li>';
 //        echo $result;
 
-        echo $this->getLayout()->createBlock('core/template')->setTemplate('Unet/megamenu/demo.phtml')->toHtml();
+        echo $this->getLayout()->createBlock('core/template')->setTemplate('unet/megamenu/demo.phtml')->toHtml();
 //        echo $this->getLayout()->createBlock('megamenu/adminhtml_megamenu')->toHtml();
 //        echo $this->getLayout()->createBlock('adminhtml/catalog_product_edit')->toHtml();
 //        echo $this->getLayout()->createBlock('adminhtml/catalog_product_edit_tabs')->toHtml();

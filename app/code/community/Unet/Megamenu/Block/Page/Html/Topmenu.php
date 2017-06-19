@@ -11,7 +11,7 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
     public function __construct()
     {
         parent::__construct();
-        $this->setTemplate('Unet/megamenu/megamenu.phtml');
+        $this->setTemplate('unet/megamenu/megamenu.phtml');
     }
 
     /**
@@ -33,9 +33,9 @@ class Unet_Megamenu_Block_Page_Html_Topmenu extends Mage_Page_Block_Html_Topmenu
          */
         $effect = Mage::getStoreConfig('megamenu_config/general/menu_effect');
         if ($effect == 'click') {
-            $result .= '<script type="text/javascript" src="http://localhost/magento.vn/js/Unet/megamenu/main_click.js"></script>';
+            $result .= '<script type="text/javascript" src="js/unet/megamenu/main_click.js"></script>';
         } else {
-            $result .= '<script type="text/javascript" src="http://localhost/magento.vn/js/Unet/megamenu/main_hover.js"></script>';
+            $result .= '<script type="text/javascript" src="js/unet/megamenu/main_hover.js"></script>';
         }
         return $result;
     }
