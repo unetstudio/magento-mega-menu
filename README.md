@@ -28,7 +28,9 @@ $ modman clone git@github.com:unetstudio/magento-mega-menu.git
 ```
 
 
-### Features
+### Management
+
+Go to Admin > Magemenu > Management, after that you can create menu items.
 
 ### Configuration
 
