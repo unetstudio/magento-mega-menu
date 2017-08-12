@@ -16,6 +16,8 @@ Demo
 
 Live demo on [http://magento.newbie-dev.net/](http://magento.newbie-dev.net/)
 
+![images/megamenu.png](images/megamenu.png)
+
 Install
 ------------
 
@@ -47,4 +49,6 @@ You can easy to config for this extension, go to Admin > Store > Configuration >
 
 ![images/configuration.png](images/configuration.png)
 
-### Credit
+### Changelog
+
+- 1.1.0: Full features version.
