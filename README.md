@@ -27,6 +27,13 @@ $ modman init
 $ modman clone git@github.com:unetstudio/magento-mega-menu.git
 ```
 
+### Update
+
+Thanks for modman, you can grab latest changes from Github as like that:
+
+```
+$ modman update magento-mega-menu
+```
 
 ### Management
 
