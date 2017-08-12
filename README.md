@@ -32,8 +32,12 @@ $ modman clone git@github.com:unetstudio/magento-mega-menu.git
 
 Go to Admin > Magemenu > Management, after that you can create menu items.
 
+![images/management.png](images/management.png)
+
 ### Configuration
 
 You can easy to config for this extension, go to Admin > Store > Configuration > Unet Studio > Mega Menu.
+
+![images/configuration.png](images/configuration.png)
 
 ### Credit
