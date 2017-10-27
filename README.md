@@ -11,11 +11,6 @@ Development Stage
 
 Alpha version for developer environment
 
-Demo
---------------
-
-Live demo on [http://magento.newbie-dev.net/](http://magento.newbie-dev.net/)
-
 ![images/megamenu.png](images/megamenu.png)
 
 Install
